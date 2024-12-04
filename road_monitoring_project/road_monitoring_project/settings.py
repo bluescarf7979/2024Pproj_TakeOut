@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+from datetime import timedelta
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -32,7 +33,10 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=1),  # 액세스 토큰 유효기간 (기본값: 5분)
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),  # 리프레시 토큰 유효기간 (기본값: 1일)
+}
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',

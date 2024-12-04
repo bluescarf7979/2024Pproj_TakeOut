@@ -38,7 +38,8 @@ class UserListView(APIView):
     permission_classes = [IsAdminUser]
 
     def get(self, request):
-        if is_valid(request.data, "user_id"):
+        user_id = request.query_params.get('user_id')
+        if user_id:
             try:
                 user = User.objects.get(id=request.data["user_id"])
                 serializer = UserSerializer(user)
@@ -51,7 +52,7 @@ class UserListView(APIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):
-        serializer = UserSerializer(data=request.data["user_id"])
+        serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
             user = serializer.save()
             # 비밀번호 해싱
