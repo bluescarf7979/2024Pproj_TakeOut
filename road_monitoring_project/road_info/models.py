@@ -3,8 +3,9 @@ from users.models import User
 
 class RoadInfo(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    surface_type = models.IntegerField()
-    road_traffic = models.IntegerField()
+    bad_type = models.IntegerField()
+    road_category = models.IntegerField()
+    speed = models.IntegerField()
     road_name = models.CharField(max_length=255)
     address = models.CharField(max_length=255)
     condition = models.IntegerField()

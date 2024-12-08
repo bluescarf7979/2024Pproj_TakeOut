@@ -20,7 +20,8 @@ class RoadInfoList(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
-        if is_valid(request.data, "info_id"):
+        info_id = request.query_params.get('info_id')
+        if info_id:
             try:
                 road_infos = RoadInfo.objects.get(info_id=request.data["info_id"])
                 serializer = RoadInfoSerializer(road_infos)
