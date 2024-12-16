@@ -1,0 +1,16 @@
+{
+  "name": "p_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "p_project/src/index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react-scripts": "^5.0.1"
+  }
+}
