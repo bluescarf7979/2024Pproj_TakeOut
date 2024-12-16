@@ -68,7 +68,7 @@ def reverse_geocode(app_key, coord):
 # 예시 사용법
 if __name__ == "__main__":
     app_key = "MQqnwXaxbE4bE8WxFe5Hkbnx6JNlVN28EegAtct1"  # 자신의 APP_KEY를 입력하세요
-    coordinates = "126.95042955033101,37.39952907832974|126.95100890747277,37.39935861417968"
+    coordinates = "127.126443, 37.478555|127.126443, 37.478555"
     
     result = match_to_road(app_key, coordinates)
     if not result:
@@ -78,11 +78,13 @@ if __name__ == "__main__":
     res_len = len(result["resultData"]["matchedPoints"])
     print(res_len)
     coord = result["resultData"]["matchedPoints"][res_len//2]["matchedLocation"]
+    rr = result["resultData"]["matchedPoints"][res_len//2]
     result_geocode = reverse_geocode(app_key, coord)    
     res_organize = json.dumps(result, indent=4, ensure_ascii=False)
     # print(res_organize)
     print("\n\n")
-    fullAddress = result_geocode["addressInfo"]["fullAddress"].split(",")[0]
+    fullAddress = result_geocode["addressInfo"]["fullAddress"].split(",")[1]
     
     print(fullAddress)
-    print(coord["roadCategory"], coord["speed"])
+    print(rr["roadCategory"], rr["speed"])
+    # print(json.dumps(result_geocode, indent=4, ensure_ascii=False))

@@ -3,24 +3,24 @@ import requests
 # API URL
 POST_URL = "http://127.0.0.1:8000/api/road_info/"
 
+# !4d
 # 요청 데이터
 data = {
     "user": 1,
-    "surface_type": 2,
-    "road_traffic": 3,
-    "road_name": "Main Street",
+    "bad_type": 1,
+    "road_category": 2,
+    "road_name": "송파대로",
     "condition": 1,
-    "latitude": 37.7749,
-    "longitude": -122.4194,
-    "risk_level": 0.8,
-    "bounding_box": """{"x":10, "y":20, "width":30, "height":40}""",
-    "updated_at": "2024-12-01"
+    "latitude": 37.478555,
+    "longitude": 127.126443,
+    "risk_level": 2,
+    "address": "서울특별시 송파구 장지동 216-2",
+    "speed": 50,
 }
-
 
 # 이미지 파일 추가
 files = {
-    "image": open("/home/a/Pictures/Screenshot from 2024-11-14 10-19-18.png", "rb")
+    "image": open("/home/a/workspace/p_proj/Screenshot from 2024-12-02 12-43-24.png", "rb")
 }
 
 # POST 요청

@@ -29,8 +29,9 @@ SECRET_KEY = 'django-insecure-=-ed@l6+o*!10v5_@r7j8x-t*@xm2x_ly(hqfzj&y16#=23523
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
+APPEND_SLASH = False
 
 # Application definition
 SIMPLE_JWT = {
@@ -50,6 +51,7 @@ INSTALLED_APPS = [
     'posts',
     'notifications',
     'drf_yasg',        # drf-yasg 추가
+    'corsheaders',
 ]
 
 REST_FRAMEWORK = {
@@ -62,6 +64,7 @@ REST_FRAMEWORK = {
 }
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -125,6 +128,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
